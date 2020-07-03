@@ -7,17 +7,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Menu extends JFrame implements ActionListener {
-
+public class Credits extends JFrame implements ActionListener {
     public JPanel panel;
-    public JButton btnInicio, btnInstru;
-    public JLabel lblFondo, lblInicio, lblTitle;
-    public ImageIcon imgFondo, icnInicio, icnIndicaciones, imgTitle;
+    public JButton btnInstru;
+    public JLabel lblFondo;
+    public ImageIcon imgFondo, icnInicio, icnIndicaciones;
 
-    public Menu() {
+    public Credits() {
         //tamano de la ventana
         this.setSize(1000, 650); //ancho y alto
-        this.setTitle("Menu"); //titulo de la ventana
+        this.setTitle("Credits"); //titulo de la ventana
         this.setLocationRelativeTo(null); //la ventana al centro
         iniciarComponentes();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //boton de cierre, termina la ejecucion del programa
@@ -38,7 +37,7 @@ public class Menu extends JFrame implements ActionListener {
     //Agregamos las etiquetas
     private void agregarEtiquetas() {
         //ETIQUETA TIPO IMAGEN
-        imgFondo = new ImageIcon("src/resources/img/Principal.png"); //agregando la imagen
+        imgFondo = new ImageIcon("src/resources/img/fondo.png"); //agregando la imagen
         lblFondo = new JLabel(imgFondo); //agregando la etiqueta con la imgane
         lblFondo.setBounds(0, 0, 1000, 607);
         lblFondo.setIcon(new ImageIcon(imgFondo.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH)));
@@ -46,22 +45,10 @@ public class Menu extends JFrame implements ActionListener {
     }
     //Colocamos los botones
     private void colocarBotones() {
-        //BOTON DE INICIAR
-        btnInicio = new JButton();
-        btnInicio.setBounds(400, 450, 200, 80);
-        icnInicio = new ImageIcon("src/resources/img/start.png");
-        btnInicio.setIcon(new ImageIcon(icnInicio.getImage().getScaledInstance(btnInicio.getWidth(), btnInicio.getHeight(), Image.SCALE_SMOOTH)));
-        btnInicio.setContentAreaFilled(false);
-        btnInicio.setEnabled(true);
-        btnInicio.setBorder(null);
-        btnInicio.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        btnInicio.addActionListener(this); //eventos del boton
-        panel.add(btnInicio);
-
-        //BOTON DE CREDITOS
+        //BOTON DE REGRESO
         btnInstru = new JButton();
         btnInstru.setBounds(5, 5, 64, 64);
-        icnIndicaciones = new ImageIcon("src/resources/img/question.png");
+        icnIndicaciones = new ImageIcon("src/resources/img/back.png");
         btnInstru.setIcon(new ImageIcon(icnIndicaciones.getImage().getScaledInstance(btnInstru.getWidth(), btnInstru.getHeight(), Image.SCALE_SMOOTH)));
         btnInstru.setContentAreaFilled(false);
         btnInstru.setEnabled(true);
@@ -74,17 +61,10 @@ public class Menu extends JFrame implements ActionListener {
     //Eventos del boton
     public void actionPerformed(ActionEvent evento) {
         //EVENTO DEL BOTON INICIO SECCION
-        if (evento.getSource() == btnInicio) {
-            Modelo modelo = new Modelo();
-            modelo.setVisible(true);
-            this.dispose();
-        }
-        //EVENTO DEL BOTON INSTRUCCIONES
         if (evento.getSource() == btnInstru) {
-            Credits credits = new Credits();
-            credits.setVisible(true);
+            Menu menu = new Menu();
+            menu.setVisible(true);
             this.dispose();
         }
-
     }
 }
