@@ -10,9 +10,9 @@ import java.awt.event.ActionListener;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Dominio extends JFrame implements ActionListener {
+public class Ensamblaje extends JFrame implements ActionListener {
     public static int cont = 0;
-    public int velocidad = 1*1000; //segundos
+    public int velocidad = 2*1000; //segundos
 
     public JPanel panelPrincipal, panel, panel2;
     public JButton btnNext, btnBack;
@@ -20,8 +20,8 @@ public class Dominio extends JFrame implements ActionListener {
     public ImageIcon imgFondo, icnNext, icnBack, imgTitle;
 
     public Icon icono;
-    public String imageRoot = "src/resources/img/Domain/";
-    public String imgList[] = {"points.png","dominio.png","superficie.png","volumen.png","mallado.png","mallado_with_surface.png","mallado_with_surface2.png"};
+    public String imageRoot = "src/resources/img/Ensamblaje K/";
+    public String imgList[] = {"I.png","II.png","III.png","IV.png","V.png","VI.png","VII.png","VIII.png","IX.png","X.png","XI.png","XII.png","XIII.png","XIV.png","XV.png","XVI.png","XVII.png"};
 
     public TimerTask tarea = new TimerTask() {
         @Override
@@ -58,6 +58,56 @@ public class Dominio extends JFrame implements ActionListener {
                     imgT.setIcon(icono);
                     break;
                 case 6:
+                    cont++;
+                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
+                    imgT.setIcon(icono);
+                    break;
+                case 7:
+                    cont++;
+                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
+                    imgT.setIcon(icono);
+                    break;
+                case 8:
+                    cont++;
+                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
+                    imgT.setIcon(icono);
+                    break;
+                case 9:
+                    cont++;
+                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
+                    imgT.setIcon(icono);
+                    break;
+                case 10:
+                    cont++;
+                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
+                    imgT.setIcon(icono);
+                    break;
+                case 11:
+                    cont++;
+                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
+                    imgT.setIcon(icono);
+                    break;
+                case 12:
+                    cont++;
+                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
+                    imgT.setIcon(icono);
+                    break;
+                case 13:
+                    cont++;
+                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
+                    imgT.setIcon(icono);
+                    break;
+                case 14:
+                    cont++;
+                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
+                    imgT.setIcon(icono);
+                    break;
+                case 15:
+                    cont++;
+                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
+                    imgT.setIcon(icono);
+                    break;
+                case 16:
                     cont = 0;
                     icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
                     imgT.setIcon(icono);
@@ -67,10 +117,10 @@ public class Dominio extends JFrame implements ActionListener {
     };
     public java.util.Timer timer = new Timer();
 
-    public Dominio() {
+    public Ensamblaje() {
         //tamano de la ventana
         this.setSize(1000, 650); //ancho y alto
-        this.setTitle("Dominio"); //titulo de la ventana
+        this.setTitle("Modelo"); //titulo de la ventana
         this.setLocationRelativeTo(null); //la ventana al centro
         iniciarComponentes();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //boton de cierre, termina la ejecucion del programa
@@ -107,7 +157,7 @@ public class Dominio extends JFrame implements ActionListener {
         lblFondo.setIcon(new ImageIcon(imgFondo.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH)));
         panel2.add(lblFondo); //agregando la etiqueta al panel
 
-        imgTitle = new ImageIcon("src/resources/img/Titles/dominio.png");
+        imgTitle = new ImageIcon("src/resources/img/Titles/ensamblaje.png");
         lblFondo2 = new JLabel(imgTitle); //agregando la etiqueta con la imgane
         //lblFondo.setBounds(0, 0, 1000, 607);
         lblFondo2.setSize(1000,150);
@@ -151,16 +201,16 @@ public class Dominio extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent evento) {
         //EVENTO DEL BOTON SIGUIENTE
         if (evento.getSource() == btnNext) {
-            Condiciones condiciones = new Condiciones();
-            condiciones.setVisible(true);
+            menu.Menu menu = new Menu();
+            menu.setVisible(true);
             //System.out.println("Click en next");
             this.dispose();
         }
 
         //EVENTO DEL BOTON ATRAS
         if (evento.getSource() == btnBack) {
-            Modelo modelo = new Modelo();
-            modelo.setVisible(true);
+            Credits credits = new Credits();
+            credits.setVisible(true);
             //System.out.println("Click en back");
             this.dispose();
         }

@@ -1,19 +1,17 @@
 package mef;
 
-import menu.Credits;
 import menu.Menu;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class Modelo extends JFrame implements ActionListener {
+public class Steps extends JFrame implements ActionListener {
 
-    public static int cont = 0;
-    public int velocidad = 2*1000; //segundos
+    public int cont = 0;
 
     public JPanel panelPrincipal, panel, panel2;
     public JButton btnNext, btnBack;
@@ -21,18 +19,53 @@ public class Modelo extends JFrame implements ActionListener {
     public ImageIcon imgFondo, icnNext, icnBack, imgTitle;
 
     public Icon icono;
-    public String imageRoot = "src/resources/img/Steps/Modelo.PNG";
-    //public String imgList[] = {"I.png","II.png","III.png","IV.png","V.png","VI.png","VII.png","VIII.png","IX.png","X.png","XI.png","XII.png","XIII.png","XIV.png","XV.png","XVI.png","XVII.png"};
+    public String imageRoot = "src/resources/img/Steps/";
+    public String imgList[] = {"I.PNG","II.png","III.png","IV.png","V.png","VI.png","VII.png","VIII.png","IX.png","X.png","XI.png","XII.png","XIII.png","XIV.png","XV.png","XVI.png","XVII.png"};
 
-    public Modelo() {
+    public Steps() {
         //tamano de la ventana
         this.setSize(1000, 650); //ancho y alto
-        this.setTitle("Modelo"); //titulo de la ventana
+        this.setTitle("Steps"); //titulo de la ventana
         this.setLocationRelativeTo(null); //la ventana al centro
         iniciarComponentes();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //boton de cierre, termina la ejecucion del programa
         setResizable(false);
-    }
+        this.addKeyListener(new KeyListener() {
+                @Override
+                public void keyTyped(KeyEvent ke) {
+                }
+
+                @Override
+                public void keyPressed(KeyEvent ke) {
+                    switch(ke.getKeyCode()){
+                        case KeyEvent.VK_LEFT:
+                            /*if (cont !=0){
+                                cont--;
+                                icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
+                                imgT.setIcon(icono);
+
+                                break;
+                            }*/
+                            break;
+                        case KeyEvent.VK_RIGHT:
+                            /*if (cont !=12){
+                                cont++;
+                                icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
+                                imgT.setIcon(icono);
+                                break;
+                            }*/
+                            System.out.println("Bye");
+                            break;
+                    }
+                }
+
+                @Override
+                public void keyReleased(KeyEvent ke) {
+
+                }
+            });
+        }
+        //eventTecla();
     //Inicializamos los componentes
     private void iniciarComponentes() {
         crearPaneles();
@@ -62,14 +95,14 @@ public class Modelo extends JFrame implements ActionListener {
         lblFondo.setIcon(new ImageIcon(imgFondo.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH)));
         panel2.add(lblFondo); //agregando la etiqueta al panel
 
-        imgTitle = new ImageIcon("src/resources/img/Titles/modelo.png");
+        imgTitle = new ImageIcon("src/resources/img/Titles/condiciones.png");
         lblFondo2 = new JLabel(imgTitle); //agregando la etiqueta con la imgane
         //lblFondo.setBounds(0, 0, 1000, 607);
         lblFondo2.setSize(1000,150);
         lblFondo2.setIcon(new ImageIcon(imgTitle.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH)));
         panel.add(lblFondo2, BorderLayout.NORTH);
 
-        imgT = new JLabel(new ImageIcon(imageRoot));
+        imgT = new JLabel(new ImageIcon(imageRoot.concat(imgList[0])));
         imgT.setSize(200,300);
         panel.add(imgT,BorderLayout.CENTER);
     }
@@ -114,11 +147,13 @@ public class Modelo extends JFrame implements ActionListener {
 
         //EVENTO DEL BOTON ATRAS
         if (evento.getSource() == btnBack) {
-            Menu menu = new Menu();
+            menu.Menu menu = new Menu();
             menu.setVisible(true);
             System.out.println("Click en next");
             this.dispose();
         }
 
     }
+
+
 }

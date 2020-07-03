@@ -1,33 +1,26 @@
 package mef;
 
-import menu.Credits;
 import menu.Menu;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Timer;
-import java.util.TimerTask;
 
-public class Modelo extends JFrame implements ActionListener {
-
-    public static int cont = 0;
-    public int velocidad = 2*1000; //segundos
-
+public class Malla extends JFrame implements ActionListener {
     public JPanel panelPrincipal, panel, panel2;
     public JButton btnNext, btnBack;
     public JLabel lblFondo, lblFondo2, imgT;
     public ImageIcon imgFondo, icnNext, icnBack, imgTitle;
 
     public Icon icono;
-    public String imageRoot = "src/resources/img/Steps/Modelo.PNG";
+    public String imageRoot = "src/resources/img/Domain/mallado.png";
     //public String imgList[] = {"I.png","II.png","III.png","IV.png","V.png","VI.png","VII.png","VIII.png","IX.png","X.png","XI.png","XII.png","XIII.png","XIV.png","XV.png","XVI.png","XVII.png"};
 
-    public Modelo() {
+    public Malla() {
         //tamano de la ventana
         this.setSize(1000, 650); //ancho y alto
-        this.setTitle("Modelo"); //titulo de la ventana
+        this.setTitle("Condiciones"); //titulo de la ventana
         this.setLocationRelativeTo(null); //la ventana al centro
         iniciarComponentes();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //boton de cierre, termina la ejecucion del programa
@@ -62,7 +55,7 @@ public class Modelo extends JFrame implements ActionListener {
         lblFondo.setIcon(new ImageIcon(imgFondo.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH)));
         panel2.add(lblFondo); //agregando la etiqueta al panel
 
-        imgTitle = new ImageIcon("src/resources/img/Titles/modelo.png");
+        imgTitle = new ImageIcon("src/resources/img/Titles/condiciones.png");
         lblFondo2 = new JLabel(imgTitle); //agregando la etiqueta con la imgane
         //lblFondo.setBounds(0, 0, 1000, 607);
         lblFondo2.setSize(1000,150);
@@ -106,16 +99,16 @@ public class Modelo extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent evento) {
         //EVENTO DEL BOTON SIGUIENTE
         if (evento.getSource() == btnNext) {
-            Dominio dominio = new Dominio();
-            dominio.setVisible(true);
+            Steps steps = new Steps();
+            steps.setVisible(true);
             System.out.println("Click en next");
             this.dispose();
         }
 
         //EVENTO DEL BOTON ATRAS
         if (evento.getSource() == btnBack) {
-            Menu menu = new Menu();
-            menu.setVisible(true);
+            Condiciones condiciones = new Condiciones();
+            condiciones.setVisible(true);
             System.out.println("Click en next");
             this.dispose();
         }
