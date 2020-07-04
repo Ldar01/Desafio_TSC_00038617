@@ -14,7 +14,7 @@ public class Condiciones extends JFrame implements ActionListener {
     public ImageIcon imgFondo, icnNext, icnBack, imgTitle;
 
     public Icon icono;
-    public String imageRoot = "src/resources/img/Domain/Dirichlet_Neumann.png";
+    public String imageRoot = "src/resources/img/Domain/condiciones.png";
     //public String imgList[] = {"I.png","II.png","III.png","IV.png","V.png","VI.png","VII.png","VIII.png","IX.png","X.png","XI.png","XII.png","XIII.png","XIV.png","XV.png","XVI.png","XVII.png"};
 
     public Condiciones() {
@@ -51,26 +51,19 @@ public class Condiciones extends JFrame implements ActionListener {
         imgFondo = new ImageIcon("src/resources/img/footer.png"); //agregando la imagen
         lblFondo = new JLabel(imgFondo); //agregando la etiqueta con la imgane
         //lblFondo.setBounds(0, 0, 1000, 607);
-        lblFondo.setSize(1000,150);
+        lblFondo.setSize(1000,75);
         lblFondo.setIcon(new ImageIcon(imgFondo.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH)));
         panel2.add(lblFondo); //agregando la etiqueta al panel
 
-        imgTitle = new ImageIcon("src/resources/img/Titles/condiciones.png");
-        lblFondo2 = new JLabel(imgTitle); //agregando la etiqueta con la imgane
-        //lblFondo.setBounds(0, 0, 1000, 607);
-        lblFondo2.setSize(1000,150);
-        lblFondo2.setIcon(new ImageIcon(imgTitle.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH)));
-        panel.add(lblFondo2, BorderLayout.NORTH);
-
         imgT = new JLabel(new ImageIcon(imageRoot));
-        imgT.setSize(200,300);
+        imgT.setSize(1000,450);
         panel.add(imgT,BorderLayout.CENTER);
     }
     //Colocamos los botones
     private void colocarBotones() {
         //boton siguiente
         btnNext = new JButton();
-        btnNext.setBounds(700, 40, 64, 64);
+        btnNext.setBounds(700, 7, 64, 64);
         //btnNext.setSize(64,64);
         icnNext = new ImageIcon("src/resources/img/next.png");
         btnNext.setIcon(new ImageIcon(icnNext.getImage().getScaledInstance(btnNext.getWidth(), btnNext.getHeight(), Image.SCALE_SMOOTH)));
@@ -83,7 +76,7 @@ public class Condiciones extends JFrame implements ActionListener {
 
         //BOTON DE INSTRUCCIONES
         btnBack = new JButton();
-        btnBack.setBounds(200, 40, 64, 64);
+        btnBack.setBounds(200, 7, 64, 64);
         //btnBack.setSize(64,64);
         icnBack = new ImageIcon("src/resources/img/return.png");
         btnBack.setIcon(new ImageIcon(icnBack.getImage().getScaledInstance(btnBack.getWidth(), btnBack.getHeight(), Image.SCALE_SMOOTH)));

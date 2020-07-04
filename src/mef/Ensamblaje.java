@@ -12,7 +12,7 @@ import java.util.TimerTask;
 
 public class Ensamblaje extends JFrame implements ActionListener {
     public static int cont = 0;
-    public int velocidad = 2*1000; //segundos
+    public int velocidad = 1*1000; //segundos
 
     public JPanel panelPrincipal, panel, panel2;
     public JButton btnNext, btnBack;
@@ -21,93 +21,53 @@ public class Ensamblaje extends JFrame implements ActionListener {
 
     public Icon icono;
     public String imageRoot = "src/resources/img/Ensamblaje K/";
-    public String imgList[] = {"I.png","II.png","III.png","IV.png","V.png","VI.png","VII.png","VIII.png","IX.png","X.png","XI.png","XII.png","XIII.png","XIV.png","XV.png","XVI.png","XVII.png"};
+    public String imgList[] = {"I.png","II.png","III.png","IV.png","V.png","VI.png","VII.png","VIII.png","IX.png","X.png","XI.png","XII.png","XIII.png","XIV.png","XV.png","XVI.png","XVII.png",
+            "IB.png","IIB.png","IIIB.png","IVB.png","VB.png","VIB.png","VIIB.png","VIIIB.png","IXB.png","XB.png","XIB.png","XIIB.png","XIIIB.png","XIVB.png","XVB.png","XVIB.png","XVIIB.png",
+            "proceed.png"};
 
     public TimerTask tarea = new TimerTask() {
         @Override
         public void run() {
             switch(cont){
                 case 0:
-                    cont++;
-                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
-                    imgT.setIcon(icono);
-                    break;
                 case 1:
-                    cont++;
-                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
-                    imgT.setIcon(icono);
-                    break;
                 case 2:
-                    cont++;
-                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
-                    imgT.setIcon(icono);
-                    break;
                 case 3:
-                    cont++;
-                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
-                    imgT.setIcon(icono);
-                    break;
                 case 4:
-                    cont++;
-                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
-                    imgT.setIcon(icono);
-                    break;
                 case 5:
-                    cont++;
-                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
-                    imgT.setIcon(icono);
-                    break;
                 case 6:
-                    cont++;
-                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
-                    imgT.setIcon(icono);
-                    break;
                 case 7:
-                    cont++;
-                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
-                    imgT.setIcon(icono);
-                    break;
                 case 8:
-                    cont++;
-                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
-                    imgT.setIcon(icono);
-                    break;
                 case 9:
-                    cont++;
-                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
-                    imgT.setIcon(icono);
-                    break;
                 case 10:
-                    cont++;
-                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
-                    imgT.setIcon(icono);
-                    break;
                 case 11:
-                    cont++;
-                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
-                    imgT.setIcon(icono);
-                    break;
                 case 12:
-                    cont++;
-                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
-                    imgT.setIcon(icono);
-                    break;
                 case 13:
-                    cont++;
-                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
-                    imgT.setIcon(icono);
-                    break;
                 case 14:
-                    cont++;
-                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
-                    imgT.setIcon(icono);
-                    break;
                 case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
+                case 20:
+                case 21:
+                case 22:
+                case 23:
+                case 24:
+                case 25:
+                case 26:
+                case 27:
+                case 28:
+                case 29:
+                case 30:
+                case 31:
+                case 32:
+                case 33:
                     cont++;
                     icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
                     imgT.setIcon(icono);
                     break;
-                case 16:
+                case 34:
                     cont = 0;
                     icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
                     imgT.setIcon(icono);
@@ -119,7 +79,7 @@ public class Ensamblaje extends JFrame implements ActionListener {
 
     public Ensamblaje() {
         //tamano de la ventana
-        this.setSize(1000, 650); //ancho y alto
+        this.setSize(1000, 700); //ancho y alto
         this.setTitle("Modelo"); //titulo de la ventana
         this.setLocationRelativeTo(null); //la ventana al centro
         iniciarComponentes();
@@ -153,26 +113,19 @@ public class Ensamblaje extends JFrame implements ActionListener {
         imgFondo = new ImageIcon("src/resources/img/footer.png"); //agregando la imagen
         lblFondo = new JLabel(imgFondo); //agregando la etiqueta con la imgane
         //lblFondo.setBounds(0, 0, 1000, 607);
-        lblFondo.setSize(1000,150);
+        lblFondo.setSize(1000,75);
         lblFondo.setIcon(new ImageIcon(imgFondo.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH)));
         panel2.add(lblFondo); //agregando la etiqueta al panel
 
-        imgTitle = new ImageIcon("src/resources/img/Titles/ensamblaje.png");
-        lblFondo2 = new JLabel(imgTitle); //agregando la etiqueta con la imgane
-        //lblFondo.setBounds(0, 0, 1000, 607);
-        lblFondo2.setSize(1000,150);
-        lblFondo2.setIcon(new ImageIcon(imgTitle.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH)));
-        panel.add(lblFondo2, BorderLayout.NORTH);
-
         imgT = new JLabel(new ImageIcon(imageRoot.concat(imgList[0])));
-        imgT.setSize(100,300);
+        imgT.setSize(1000,450);
         panel.add(imgT,BorderLayout.CENTER);
     }
     //Colocamos los botones
     private void colocarBotones() {
         //boton siguiente
         btnNext = new JButton();
-        btnNext.setBounds(700, 40, 64, 64);
+        btnNext.setBounds(700, 7, 64, 64);
         //btnNext.setSize(64,64);
         icnNext = new ImageIcon("src/resources/img/next.png");
         btnNext.setIcon(new ImageIcon(icnNext.getImage().getScaledInstance(btnNext.getWidth(), btnNext.getHeight(), Image.SCALE_SMOOTH)));
@@ -185,7 +138,7 @@ public class Ensamblaje extends JFrame implements ActionListener {
 
         //BOTON DE INSTRUCCIONES
         btnBack = new JButton();
-        btnBack.setBounds(200, 40, 64, 64);
+        btnBack.setBounds(200, 7, 64, 64);
         //btnBack.setSize(64,64);
         icnBack = new ImageIcon("src/resources/img/return.png");
         btnBack.setIcon(new ImageIcon(icnBack.getImage().getScaledInstance(btnBack.getWidth(), btnBack.getHeight(), Image.SCALE_SMOOTH)));

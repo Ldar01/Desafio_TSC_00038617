@@ -37,7 +37,7 @@ public class Credits extends JFrame implements ActionListener {
     //Agregamos las etiquetas
     private void agregarEtiquetas() {
         //ETIQUETA TIPO IMAGEN
-        imgFondo = new ImageIcon("src/resources/img/fondo.png"); //agregando la imagen
+        imgFondo = new ImageIcon("src/resources/img/credits.png"); //agregando la imagen
         lblFondo = new JLabel(imgFondo); //agregando la etiqueta con la imgane
         lblFondo.setBounds(0, 0, 1000, 607);
         lblFondo.setIcon(new ImageIcon(imgFondo.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH)));

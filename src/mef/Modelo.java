@@ -26,7 +26,7 @@ public class Modelo extends JFrame implements ActionListener {
 
     public Modelo() {
         //tamano de la ventana
-        this.setSize(1000, 650); //ancho y alto
+        this.setSize(1000, 700); //ancho y alto
         this.setTitle("Modelo"); //titulo de la ventana
         this.setLocationRelativeTo(null); //la ventana al centro
         iniciarComponentes();
@@ -58,26 +58,19 @@ public class Modelo extends JFrame implements ActionListener {
         imgFondo = new ImageIcon("src/resources/img/footer.png"); //agregando la imagen
         lblFondo = new JLabel(imgFondo); //agregando la etiqueta con la imgane
         //lblFondo.setBounds(0, 0, 1000, 607);
-        lblFondo.setSize(1000,150);
+        lblFondo.setSize(1000,75);
         lblFondo.setIcon(new ImageIcon(imgFondo.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH)));
         panel2.add(lblFondo); //agregando la etiqueta al panel
 
-        imgTitle = new ImageIcon("src/resources/img/Titles/modelo.png");
-        lblFondo2 = new JLabel(imgTitle); //agregando la etiqueta con la imgane
-        //lblFondo.setBounds(0, 0, 1000, 607);
-        lblFondo2.setSize(1000,150);
-        lblFondo2.setIcon(new ImageIcon(imgTitle.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH)));
-        panel.add(lblFondo2, BorderLayout.NORTH);
-
         imgT = new JLabel(new ImageIcon(imageRoot));
-        imgT.setSize(200,300);
+        imgT.setSize(1000,450);
         panel.add(imgT,BorderLayout.CENTER);
     }
     //Colocamos los botones
     private void colocarBotones() {
         //boton siguiente
         btnNext = new JButton();
-        btnNext.setBounds(700, 40, 64, 64);
+        btnNext.setBounds(700, 7, 64, 64);
         //btnNext.setSize(64,64);
         icnNext = new ImageIcon("src/resources/img/next.png");
         btnNext.setIcon(new ImageIcon(icnNext.getImage().getScaledInstance(btnNext.getWidth(), btnNext.getHeight(), Image.SCALE_SMOOTH)));
@@ -90,7 +83,7 @@ public class Modelo extends JFrame implements ActionListener {
 
         //BOTON DE INSTRUCCIONES
         btnBack = new JButton();
-        btnBack.setBounds(200, 40, 64, 64);
+        btnBack.setBounds(200, 7, 64, 64);
         //btnBack.setSize(64,64);
         icnBack = new ImageIcon("src/resources/img/return.png");
         btnBack.setIcon(new ImageIcon(icnBack.getImage().getScaledInstance(btnBack.getWidth(), btnBack.getHeight(), Image.SCALE_SMOOTH)));
