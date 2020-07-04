@@ -16,9 +16,9 @@ public class Modelo extends JFrame implements ActionListener {
     public int velocidad = 2*1000; //segundos
 
     public JPanel panelPrincipal, panel, panel2;
-    public JButton btnNext, btnBack;
-    public JLabel lblFondo, lblFondo2, imgT;
-    public ImageIcon imgFondo, icnNext, icnBack, imgTitle;
+    public JButton btnNext;
+    public JLabel lblFondo, imgT;
+    public ImageIcon imgFondo, icnNext;
 
     public Icon icono;
     public String imageRoot = "src/resources/img/Steps/Modelo.PNG";
@@ -70,7 +70,7 @@ public class Modelo extends JFrame implements ActionListener {
     private void colocarBotones() {
         //boton siguiente
         btnNext = new JButton();
-        btnNext.setBounds(700, 7, 64, 64);
+        btnNext.setBounds(500, 7, 64, 64);
         //btnNext.setSize(64,64);
         icnNext = new ImageIcon("src/resources/img/next.png");
         btnNext.setIcon(new ImageIcon(icnNext.getImage().getScaledInstance(btnNext.getWidth(), btnNext.getHeight(), Image.SCALE_SMOOTH)));
@@ -80,20 +80,6 @@ public class Modelo extends JFrame implements ActionListener {
         btnNext.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnNext.addActionListener(this); //eventos del boton
         panel2.add(btnNext);
-
-        //BOTON DE INSTRUCCIONES
-        btnBack = new JButton();
-        btnBack.setBounds(200, 7, 64, 64);
-        //btnBack.setSize(64,64);
-        icnBack = new ImageIcon("src/resources/img/return.png");
-        btnBack.setIcon(new ImageIcon(icnBack.getImage().getScaledInstance(btnBack.getWidth(), btnBack.getHeight(), Image.SCALE_SMOOTH)));
-        btnBack.setContentAreaFilled(false);
-        btnBack.setEnabled(true);
-        btnBack.setBorder(null);
-        btnBack.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        btnBack.addActionListener(this); //eventos del boton
-        panel2.add(btnBack);
-
     }
     //Eventos del boton
     public void actionPerformed(ActionEvent evento) {
@@ -104,14 +90,5 @@ public class Modelo extends JFrame implements ActionListener {
             System.out.println("Click en next");
             this.dispose();
         }
-
-        //EVENTO DEL BOTON ATRAS
-        if (evento.getSource() == btnBack) {
-            Menu menu = new Menu();
-            menu.setVisible(true);
-            System.out.println("Click en next");
-            this.dispose();
-        }
-
     }
 }

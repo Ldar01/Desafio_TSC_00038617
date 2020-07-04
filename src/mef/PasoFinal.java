@@ -1,18 +1,17 @@
 package mef;
 
-import menu.Credits;
-import menu.Menu;
+import menu.Farewell;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class Ensamblaje extends JFrame implements ActionListener {
-    public static int cont = 0;
-    public int velocidad = 1*1000; //segundos
+public class PasoFinal extends JFrame implements ActionListener {
+
+    public int cont = 0;
 
     public JPanel panelPrincipal, panel, panel2;
     public JButton btnNext, btnBack;
@@ -20,74 +19,63 @@ public class Ensamblaje extends JFrame implements ActionListener {
     public ImageIcon imgFondo, icnNext, icnBack, imgTitle;
 
     public Icon icono;
-    public String imageRoot = "src/resources/img/Ensamblaje K/";
-    public String imgList[] = {"I.png","II.png","III.png","IV.png","V.png","VI.png","VII.png","VIII.png","IX.png","X.png","XI.png","XII.png","XIII.png","XIV.png","XV.png","XVI.png","XVII.png",
-            "IB.png","IIB.png","IIIB.png","IVB.png","VB.png","VIB.png","VIIB.png","VIIIB.png","IXB.png","XB.png","XIB.png","XIIB.png","XIIIB.png","XIVB.png","XVB.png","XVIB.png","XVIIB.png",
-            "proceed.png"};
+    public String imageRoot = "src/resources/img/Steps/";
+    public String imgList[] = {"aviso3.jpg","paso8.1.png","paso8.2.png","paso8.3.png","paso8.4.png","aviso2.png"};
+    //public String imgTitlesList[] = {"paso1.png","paso2.png","paso3.png","paso4.png","paso5.png","paso6.png","matrices.png"};
 
-    public TimerTask tarea = new TimerTask() {
-        @Override
-        public void run() {
-            switch(cont){
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                case 16:
-                case 17:
-                case 18:
-                case 19:
-                case 20:
-                case 21:
-                case 22:
-                case 23:
-                case 24:
-                case 25:
-                case 26:
-                case 27:
-                case 28:
-                case 29:
-                case 30:
-                case 31:
-                case 32:
-                case 33:
-                    cont++;
-                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
-                    imgT.setIcon(icono);
-                    break;
-                case 34:
-                    cont = 0;
-                    icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
-                    imgT.setIcon(icono);
-                    break;
-            }
-        }
-    };
-    public java.util.Timer timer = new Timer();
 
-    public Ensamblaje() {
+    public PasoFinal() {
         //tamano de la ventana
         this.setSize(1000, 700); //ancho y alto
-        this.setTitle("Modelo"); //titulo de la ventana
+        this.setTitle("Steps"); //titulo de la ventana
         this.setLocationRelativeTo(null); //la ventana al centro
         iniciarComponentes();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //boton de cierre, termina la ejecucion del programa
         setResizable(false);
+        setFocusable(true);
+        this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent ke) {
+            }
 
-        timer.scheduleAtFixedRate(tarea, velocidad, velocidad);
+            @Override
+            public void keyPressed(KeyEvent ke) {
+                switch(ke.getKeyCode()){
+                    case KeyEvent.VK_DOWN:
+                        if (cont !=0){
+                            cont--;
+                            icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
+                            imgT.setIcon(icono);
+                            System.out.println("Izquierda");
+                            break;
+                        }else{
+                            icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
+                            imgT.setIcon(icono);
+                            break;
+                        }
+                    case KeyEvent.VK_UP:
+                        if (cont !=5){
+                            cont++;
+                            icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
+                            imgT.setIcon(icono);
+                            System.out.println("Derecha");
+                            break;
+                        }else{
+                            icono =  new ImageIcon(imageRoot.concat(imgList[cont]));
+                            imgT.setIcon(icono);
+                            break;
+                        }
+
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent ke) {
+
+            }
+        });
     }
+    //eventTecla();
     //Inicializamos los componentes
     private void iniciarComponentes() {
         crearPaneles();
@@ -154,17 +142,16 @@ public class Ensamblaje extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent evento) {
         //EVENTO DEL BOTON SIGUIENTE
         if (evento.getSource() == btnNext) {
-            PasoFinal pasoFinal = new PasoFinal();
-            pasoFinal.setVisible(true);
-            //System.out.println("Click en next");
+            Farewell farewell = new Farewell();
+            farewell.setVisible(true);
             this.dispose();
         }
 
         //EVENTO DEL BOTON ATRAS
         if (evento.getSource() == btnBack) {
-            Steps steps = new Steps();
-            steps.setVisible(true);
-            //System.out.println("Click en back");
+            Ensamblaje ensamblaje = new Ensamblaje();
+            ensamblaje.setVisible(true);
+            System.out.println("Click en next");
             this.dispose();
         }
 
